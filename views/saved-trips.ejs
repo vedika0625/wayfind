@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Saved Trips | TravelStyle Matcher</title>
+
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+  <header class="navbar">
+    <a href="/" class="logo">TravelStyle Matcher</a>
+
+    <a href="/matcher" class="nav-link">
+      Find Another Trip
+    </a>
+  </header>
+
+  <main class="results-container">
+
+    <div class="results-heading">
+
+      <p class="eyebrow">SAVED TRAVEL PROFILES</p>
+
+      <h1>Your Travel Preferences</h1>
+
+    </div>
+
+    <% if (profiles.length === 0) { %>
+
+      <p>No travel profiles saved yet.</p>
+
+    <% } else { %>
+
+      <div class="results-grid">
+
+        <% profiles.forEach((profile) => { %>
+
+          <div class="destination-card">
+
+            <h2>Trip Profile #<%= profile.id %></h2>
+
+            <br>
+
+            <p>
+              <strong>Budget:</strong>
+              <%= profile.budget %>
+            </p>
+
+            <p>
+              <strong>Duration:</strong>
+              <%= profile.duration %> days
+            </p>
+
+            <p>
+              <strong>Travel Group:</strong>
+              <%= profile.group %>
+            </p>
+
+            <p>
+              <strong>Destination Type:</strong>
+              <%= profile.type %>
+            </p>
+
+            <p>
+              <strong>Climate:</strong>
+              <%= profile.climate %>
+            </p>
+
+            <p>
+              <strong>Activity:</strong>
+              <%= profile.activity %>
+            </p>
+
+            <p>
+              <strong>Travel Pace:</strong>
+              <%= profile.pace %>
+            </p>
+
+          </div>
+
+        <% }) %>
+
+      </div>
+
+    <% } %>
+
+  </main>
+
+</body>
+</html>

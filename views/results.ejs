@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Your Matches | TravelStyle Matcher</title>
+
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+  <header class="navbar">
+    <a href="/" class="logo">TravelStyle Matcher</a>
+
+    <a href="/matcher" class="nav-link">
+      Try Again
+    </a>
+  </header>
+
+
+  <main class="results-container">
+
+    <div class="results-heading">
+
+      <p class="eyebrow">YOUR TRAVEL MATCHES</p>
+
+      <h1>Destinations Made For You</h1>
+
+      <p>
+        Based on your travel preferences, here are your matching destinations.
+      </p>
+
+    </div>
+
+
+    <div class="results-grid">
+
+      <% results.forEach((destination) => { %>
+
+        <div class="destination-card">
+
+          <div class="destination-header">
+
+            <div>
+              <h2><%= destination.name %></h2>
+
+              <p class="state">
+                <%= destination.state %>
+              </p>
+            </div>
+
+            <div class="score">
+              <span><%= destination.score %>%</span>
+              <small>Match</small>
+            </div>
+
+          </div>
+
+
+          <div class="score-bar">
+  <div class="score-fill"></div>
+</div>
+
+
+          <div class="destination-info">
+
+            <p>
+              <strong>Type:</strong>
+              <%= destination.type.join(", ") %>
+            </p>
+
+            <p>
+              <strong>Climate:</strong>
+              <%= destination.climate.join(", ") %>
+            </p>
+
+            <p>
+              <strong>Activities:</strong>
+              <%= destination.activities.join(", ") %>
+            </p>
+
+          </div>
+
+        </div>
+
+      <% }) %>
+
+    </div>
+
+
+    <div class="bottom-action">
+
+      <a href="/matcher" class="submit-btn">
+        Change Preferences
+      </a>
+
+    </div>
+
+  </main>
+
+
+  <footer class="footer">
+
+    <p>
+      TravelStyle Matcher · Find trips that match your style
+    </p>
+
+  </footer>
+
+</body>
+</html>

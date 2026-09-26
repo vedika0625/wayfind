@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Your Trip | TravelStyle Matcher</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <a href="/" class="logo">TravelStyle Matcher</a>
+    <a href="/" class="nav-link">Home</a>
+  </header>
+
+  <main class="form-container">
+    <div class="form-heading">
+      <p class="eyebrow">YOUR NEXT ADVENTURE STARTS HERE</p>
+      <h1>Find Your Perfect Destination</h1>
+      <p>Tell us about your travel style, and we'll find places
+         that match your preferences.</p>
+    </div>
+
+    <form action="/match" method="POST" class="matcher-form">
+
+      <div class="form-group">
+        <label for="budget">What's your total trip budget?</label>
+        <select id="budget" name="budget" required>
+          <option value="">Select your budget</option>
+          <option value="low">Budget-friendly (under ₹15,000)</option>
+          <option value="medium">Moderate (₹15,000–₹40,000)</option>
+          <option value="high">Premium (above ₹40,000)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="duration">How many days will you travel?</label>
+        <select id="duration" name="duration" required>
+          <option value="">Select duration</option>
+          <option value="2">2 days</option>
+          <option value="3">3 days</option>
+          <option value="4">4 days</option>
+          <option value="5">5 days</option>
+          <option value="6">6 days</option>
+          <option value="7">7 days</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="group">Who are you travelling with?</label>
+        <select id="group" name="group" required>
+          <option value="">Select travel group</option>
+          <option value="solo">Solo</option>
+          <option value="family">Family</option>
+          <option value="friends">Friends</option>
+          <option value="couple">Couple</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="type">What kind of destination do you prefer?</label>
+        <select id="type" name="type" required>
+          <option value="">Select destination type</option>
+          <option value="mountains">Mountains</option>
+          <option value="nature">Nature and greenery</option>
+          <option value="beach">Beaches</option>
+          <option value="heritage">Heritage and culture</option>
+          <option value="city">City experiences</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="climate">Which climate do you prefer?</label>
+        <select id="climate" name="climate" required>
+          <option value="">Select climate</option>
+          <option value="cool">Cool</option>
+          <option value="cold">Cold</option>
+          <option value="warm">Warm</option>
+          <option value="dry">Dry</option>
+          <option value="moderate">Moderate</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="activity">What do you enjoy doing?</label>
+        <select id="activity" name="activity" required>
+          <option value="">Select activity</option>
+          <option value="nature">Nature and scenic views</option>
+          <option value="sightseeing">Sightseeing</option>
+          <option value="adventure">Adventure activities</option>
+          <option value="beach">Beach activities</option>
+          <option value="water">Water activities</option>
+          <option value="heritage">Historical places</option>
+          <option value="food">Food experiences</option>
+          <option value="relaxation">Relaxation</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="pace">What is your preferred travel pace?</label>
+        <select id="pace" name="pace" required>
+          <option value="">Select travel pace</option>
+          <option value="relaxed">Relaxed — take it slow</option>
+          <option value="moderate">Moderate — a balanced itinerary</option>
+          <option value="fast">Fast — explore as much as possible</option>
+        </select>
+      </div>
+
+      <button type="submit" class="submit-btn">
+        Find My Destination →
+      </button>
+
+    </form>
+  </main>
+
+  <footer class="footer">
+    <p>TravelStyle Matcher · Made for curious travellers</p>
+  </footer>
+
+</body>
+</html>
