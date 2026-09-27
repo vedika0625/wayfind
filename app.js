@@ -19,6 +19,11 @@ app.use(express.urlencoded({ extended: true }));
 // Serve CSS and JavaScript from public folder
 app.use(express.static("public"));
 
+app.use((req, res, next) => {
+  res.locals.commitId = process.env.COMMIT_ID || "development";
+  next();
+});
+
 
 // ====================
 // HOME PAGE
