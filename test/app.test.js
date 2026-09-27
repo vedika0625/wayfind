@@ -125,7 +125,7 @@ test("POST /match should return results page", async () => {
 
   assert.strictEqual(response.statusCode, 200);
   assert.strictEqual(
-    response.body.includes("THIS SHOULD FAIL"),
+    response.body.includes("Destinations made"),
     true
   );
 });
