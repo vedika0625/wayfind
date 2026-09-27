@@ -83,7 +83,8 @@ app.get("/api/destinations", (req, res) => {
 // ====================
 app.get("/health", (req, res) => {
   res.json({
-    status: "ok"
+    status: "ok",
+    commit: process.env.COMMIT_ID || "development"
   });
 });
 
