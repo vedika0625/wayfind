@@ -3,86 +3,109 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Saved Trips | WayFind</title>
-
+  <title>WayFind | Saved Trips</title>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body>
+<body class="saved-page">
 
   <header class="navbar">
-    <a href="/" class="logo">WayFind</a>
+    <div class="logo">
+      🌍 <span>WayFind</span>
+    </div>
 
-    <a href="/matcher" class="nav-link">
-      Find Another Trip
-    </a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/matcher">Find a Trip</a>
+      <a href="/saved-trips">Saved Trips</a>
+    </nav>
   </header>
 
-  <main class="results-container">
+  <main class="saved-container">
 
-    <div class="results-heading">
+    <section class="saved-heading">
+      <span class="hero-tag">💾 YOUR TRAVEL PLANS</span>
 
-      <p class="eyebrow">SAVED TRAVEL PROFILES</p>
+      <h1>Your saved <span>travel styles.</span></h1>
 
-      <h1>Your Travel Preferences</h1>
-
-    </div>
+      <p>
+        Keep track of the travel preferences you've explored with WayFind.
+      </p>
+    </section>
 
     <% if (profiles.length === 0) { %>
 
-      <p>No travel profiles saved yet.</p>
+      <section class="empty-trips">
+
+        <div class="empty-icon">🧳</div>
+
+        <h2>No trips explored yet</h2>
+
+        <p>
+          Start by telling WayFind what kind of trip you're looking for.
+          We'll find destinations that match your style.
+        </p>
+
+        <a href="/matcher" class="btn btn-primary">
+          Find My Destination ✈️
+        </a>
+
+      </section>
 
     <% } else { %>
 
-      <div class="results-grid">
+      <section class="saved-grid">
 
-        <% profiles.forEach((profile) => { %>
+        <% profiles.forEach((profile, index) => { %>
 
-          <div class="destination-card">
+          <article class="saved-card">
 
-            <h2>Trip Profile #<%= profile.id %></h2>
+            <div class="saved-card-top">
 
-            <br>
+              <span class="trip-number">
+                Trip #<%= index + 1 %>
+              </span>
 
-            <p>
-              <strong>Budget:</strong>
-              <%= profile.budget %>
+              <span class="saved-icon">🧭</span>
+
+            </div>
+
+            <h2>
+              <%= profile.type %> getaway
+            </h2>
+
+            <p class="saved-subtitle">
+              <%= profile.duration %> day trip for <%= profile.group %>
             </p>
 
-            <p>
-              <strong>Duration:</strong>
-              <%= profile.duration %> days
-            </p>
+            <div class="saved-tags">
 
-            <p>
-              <strong>Travel Group:</strong>
-              <%= profile.group %>
-            </p>
+              <span>💰 <%= profile.budget %></span>
+              <span>🌤️ <%= profile.climate %></span>
+              <span>🎯 <%= profile.activity %></span>
+              <span>🚶 <%= profile.pace %></span>
 
-            <p>
-              <strong>Destination Type:</strong>
-              <%= profile.type %>
-            </p>
+            </div>
 
-            <p>
-              <strong>Climate:</strong>
-              <%= profile.climate %>
-            </p>
+            <div class="saved-card-footer">
+              <span>🌍 WayFind Travel Profile</span>
+            </div>
 
-            <p>
-              <strong>Activity:</strong>
-              <%= profile.activity %>
-            </p>
+          </article>
 
-            <p>
-              <strong>Travel Pace:</strong>
-              <%= profile.pace %>
-            </p>
+        <% }); %>
 
-          </div>
+      </section>
 
-        <% }) %>
+      <div class="saved-actions">
+
+        <a href="/matcher" class="btn btn-primary">
+          ✨ Create Another Trip
+        </a>
+
+        <a href="/" class="btn btn-secondary">
+          Back to Home
+        </a>
 
       </div>
 
@@ -90,7 +113,7 @@
 
   </main>
 
-<footer class="footer">
+  <footer class="footer">
 
     <p>
       WayFind · Find trips that match your style
