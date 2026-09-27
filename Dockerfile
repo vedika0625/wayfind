@@ -2,8 +2,8 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-ARG COMMIT_ID=development
-ENV COMMIT_ID=$COMMIT_ID
+ARG RENDER_GIT_COMMIT
+ENV COMMIT_ID=$RENDER_GIT_COMMIT
 
 COPY package*.json ./
 
