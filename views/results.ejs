@@ -3,100 +3,141 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Your Matches | WayFind</title>
-
+  <title>WayFind | Your Matches</title>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body>
+<body class="results-page">
 
   <header class="navbar">
-    <a href="/" class="logo">WayFind</a>
+    <div class="logo">
+      🌍 <span>WayFind</span>
+    </div>
 
-    <a href="/matcher" class="nav-link">
-      Try Again
-    </a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/matcher">Find a Trip</a>
+      <a href="/saved-trips">Saved Trips</a>
+    </nav>
   </header>
-
 
   <main class="results-container">
 
-    <div class="results-heading">
+    <section class="results-heading">
+      <span class="hero-tag">✨ YOUR TRAVEL MATCHES</span>
 
-      <p class="eyebrow">YOUR TRAVEL MATCHES</p>
-
-      <h1>Destinations Made For You</h1>
+      <h1>Destinations made <span>for you.</span></h1>
 
       <p>
-        Based on your travel preferences, here are your matching destinations.
+        Based on your preferences, here are the destinations
+        that match your travel style.
       </p>
+    </section>
 
-    </div>
+    <section class="preference-summary">
 
-
-    <div class="results-grid">
-
-      <% results.forEach((destination) => { %>
-
-        <div class="destination-card">
-
-          <div class="destination-header">
-
-            <div>
-              <h2><%= destination.name %></h2>
-
-              <p class="state">
-                <%= destination.state %>
-              </p>
-            </div>
-
-            <div class="score">
-              <span><%= destination.score %>%</span>
-              <small>Match</small>
-            </div>
-
-          </div>
-
-
-          <div class="score-bar">
-  <div class="score-fill"></div>
-</div>
-
-
-          <div class="destination-info">
-
-            <p>
-              <strong>Type:</strong>
-              <%= destination.type.join(", ") %>
-            </p>
-
-            <p>
-              <strong>Climate:</strong>
-              <%= destination.climate.join(", ") %>
-            </p>
-
-            <p>
-              <strong>Activities:</strong>
-              <%= destination.activities.join(", ") %>
-            </p>
-
-          </div>
-
+      <div class="summary-title">
+        <span>🧭</span>
+        <div>
+          <h2>Your Travel Style</h2>
+          <p>Here's what you told WayFind.</p>
         </div>
+      </div>
 
-      <% }) %>
+      <div class="preference-tags">
+        <span>💰 <%= preferences.budget %> budget</span>
+        <span>📅 <%= preferences.duration %> days</span>
+        <span>👥 <%= preferences.group %></span>
+        <span>🌍 <%= preferences.type %></span>
+        <span>🌤️ <%= preferences.climate %></span>
+        <span>🎯 <%= preferences.activity %></span>
+        <span>🚶 <%= preferences.pace %> pace</span>
+      </div>
 
-    </div>
-
-
-    <div class="bottom-action">
-
-      <a href="/matcher" class="submit-btn">
-        Change Preferences
+      <a href="/matcher" class="edit-preferences">
+        ✏️ Change preferences
       </a>
 
-    </div>
+    </section>
+
+    <section class="results-grid">
+
+      <% results.forEach((destination, index) => { %>
+
+        <article class="destination-card">
+
+          <div class="destination-top">
+
+            <span class="rank-badge">
+              #<%= index + 1 %>
+            </span>
+
+            <span class="match-badge">
+              <%= destination.score %>% Match
+            </span>
+
+          </div>
+
+          <div class="destination-icon">
+            <% if (destination.type.includes("beach")) { %>
+              🏝️
+            <% } else if (destination.type.includes("mountains")) { %>
+              🏔️
+            <% } else if (destination.type.includes("heritage")) { %>
+              🏛️
+            <% } else if (destination.type.includes("nature")) { %>
+              🌿
+            <% } else { %>
+              🏙️
+            <% } %>
+          </div>
+
+          <div class="destination-info">
+            <h2><%= destination.name %></h2>
+
+            <p class="destination-state">
+              📍 <%= destination.state %>
+            </p>
+
+            <div class="match-bar">
+              <div
+                class="match-progress"
+                style="--match-width: <%= destination.score %>%;"
+              </div>
+            </div>
+
+            <p class="match-description">
+              This destination matches your travel preferences
+              across budget, activities, climate and travel style.
+            </p>
+
+            <div class="destination-tags">
+
+              <% destination.type.forEach((type) => { %>
+                <span><%= type %></span>
+              <% }); %>
+
+            </div>
+
+          </div>
+
+        </article>
+
+      <% }); %>
+
+    </section>
+
+    <section class="results-actions">
+
+      <a href="/matcher" class="btn btn-primary">
+        🔄 Try Another Match
+      </a>
+
+      <a href="/saved-trips" class="btn btn-secondary">
+        💾 View Saved Trips
+      </a>
+
+    </section>
 
   </main>
 

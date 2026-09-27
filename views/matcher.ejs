@@ -1,118 +1,170 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Find Your Trip | WayFind</title>
+  <title>WayFind | Find Your Trip</title>
   <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
+
+<body class="matcher-page">
 
   <header class="navbar">
-    <a href="/" class="logo">WayFind</a>
-    <a href="/" class="nav-link">Home</a>
+    <div class="logo">
+      🌍 <span>WayFind</span>
+    </div>
+
+    <nav>
+      <a href="/">Home</a>
+      <a href="/matcher">Find a Trip</a>
+      <a href="/saved-trips">Saved Trips</a>
+    </nav>
   </header>
 
-  <main class="form-container">
-    <div class="form-heading">
-      <p class="eyebrow">YOUR NEXT ADVENTURE STARTS HERE</p>
-      <h1>Find Your Perfect Destination</h1>
-      <p>Tell us about your travel style, and we'll find places
-         that match your preferences.</p>
-    </div>
+  <main class="matcher-container">
+
+    <section class="matcher-heading">
+      <span class="hero-tag">✨ LET'S FIND YOUR MATCH</span>
+
+      <h1>What's your <span>travel style?</span></h1>
+
+      <p>
+        Tell us a little about your ideal trip and WayFind
+        will discover destinations that match your preferences.
+      </p>
+    </section>
 
     <form action="/match" method="POST" class="matcher-form">
 
-      <div class="form-group">
-        <label for="budget">What's your total trip budget?</label>
-        <select id="budget" name="budget" required>
-          <option value="">Select your budget</option>
-          <option value="low">Budget-friendly (under ₹15,000)</option>
-          <option value="medium">Moderate (₹15,000–₹40,000)</option>
-          <option value="high">Premium (above ₹40,000)</option>
-        </select>
+      <div class="form-section">
+        <div class="form-section-title">
+          <span>💰</span>
+          <div>
+            <h2>Your Trip</h2>
+            <p>Start with the basics.</p>
+          </div>
+        </div>
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label for="budget">What's your budget?</label>
+
+            <select id="budget" name="budget" required>
+              <option value="" disabled selected>Select budget</option>
+              <option value="low">💚 Low</option>
+              <option value="medium">💛 Medium</option>
+              <option value="high">💜 High</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="duration">How many days?</label>
+
+            <select id="duration" name="duration" required>
+              <option value="" disabled selected>Select duration</option>
+              <option value="2">2 days</option>
+              <option value="3">3 days</option>
+              <option value="4">4 days</option>
+              <option value="5">5 days</option>
+              <option value="6">6 days</option>
+              <option value="7">7 days</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="group">Who are you travelling with?</label>
+
+            <select id="group" name="group" required>
+              <option value="" disabled selected>Select group</option>
+              <option value="family">👨‍👩‍👧 Family</option>
+              <option value="friends">🧑‍🤝‍🧑 Friends</option>
+              <option value="couple">💑 Couple</option>
+            </select>
+          </div>
+
+        </div>
       </div>
 
-      <div class="form-group">
-        <label for="duration">How many days will you travel?</label>
-        <select id="duration" name="duration" required>
-          <option value="">Select duration</option>
-          <option value="2">2 days</option>
-          <option value="3">3 days</option>
-          <option value="4">4 days</option>
-          <option value="5">5 days</option>
-          <option value="6">6 days</option>
-          <option value="7">7 days</option>
-        </select>
+      <div class="form-section">
+        <div class="form-section-title">
+          <span>🌈</span>
+          <div>
+            <h2>Your Preferences</h2>
+            <p>What kind of place feels right for you?</p>
+          </div>
+        </div>
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label for="type">Destination type</label>
+
+            <select id="type" name="type" required>
+              <option value="" disabled selected>Choose a type</option>
+              <option value="mountains">🏔️ Mountains</option>
+              <option value="beach">🏝️ Beach</option>
+              <option value="heritage">🏛️ Heritage</option>
+              <option value="city">🏙️ City</option>
+              <option value="nature">🌿 Nature</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="climate">Preferred climate</label>
+
+            <select id="climate" name="climate" required>
+              <option value="" disabled selected>Choose climate</option>
+              <option value="cold">❄️ Cold</option>
+              <option value="cool">🌤️ Cool</option>
+              <option value="moderate">🌥️ Moderate</option>
+              <option value="warm">☀️ Warm</option>
+              <option value="dry">🏜️ Dry</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="activity">Favourite activity</label>
+
+            <select id="activity" name="activity" required>
+              <option value="" disabled selected>Choose activity</option>
+              <option value="nature">🌿 Nature</option>
+              <option value="sightseeing">📸 Sightseeing</option>
+              <option value="adventure">🧗 Adventure</option>
+              <option value="beach">🌊 Beach</option>
+              <option value="water">🏄 Water activities</option>
+              <option value="heritage">🏛️ Heritage</option>
+              <option value="food">🍜 Food</option>
+              <option value="relaxation">🧘 Relaxation</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="pace">Travel pace</label>
+
+            <select id="pace" name="pace" required>
+              <option value="" disabled selected>Choose pace</option>
+              <option value="relaxed">🌿 Relaxed</option>
+              <option value="moderate">🚶 Moderate</option>
+              <option value="fast">⚡ Fast-paced</option>
+            </select>
+          </div>
+
+        </div>
       </div>
 
-      <div class="form-group">
-        <label for="group">Who are you travelling with?</label>
-        <select id="group" name="group" required>
-          <option value="">Select travel group</option>
-          <option value="solo">Solo</option>
-          <option value="family">Family</option>
-          <option value="friends">Friends</option>
-          <option value="couple">Couple</option>
-        </select>
-      </div>
+      <div class="form-submit">
+        <button type="submit" class="btn btn-primary matcher-button">
+          Find My Perfect Match ✨
+        </button>
 
-      <div class="form-group">
-        <label for="type">What kind of destination do you prefer?</label>
-        <select id="type" name="type" required>
-          <option value="">Select destination type</option>
-          <option value="mountains">Mountains</option>
-          <option value="nature">Nature and greenery</option>
-          <option value="beach">Beaches</option>
-          <option value="heritage">Heritage and culture</option>
-          <option value="city">City experiences</option>
-        </select>
+        <p>We'll compare your preferences with our destinations.</p>
       </div>
-
-      <div class="form-group">
-        <label for="climate">Which climate do you prefer?</label>
-        <select id="climate" name="climate" required>
-          <option value="">Select climate</option>
-          <option value="cool">Cool</option>
-          <option value="cold">Cold</option>
-          <option value="warm">Warm</option>
-          <option value="dry">Dry</option>
-          <option value="moderate">Moderate</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="activity">What do you enjoy doing?</label>
-        <select id="activity" name="activity" required>
-          <option value="">Select activity</option>
-          <option value="nature">Nature and scenic views</option>
-          <option value="sightseeing">Sightseeing</option>
-          <option value="adventure">Adventure activities</option>
-          <option value="beach">Beach activities</option>
-          <option value="water">Water activities</option>
-          <option value="heritage">Historical places</option>
-          <option value="food">Food experiences</option>
-          <option value="relaxation">Relaxation</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="pace">What is your preferred travel pace?</label>
-        <select id="pace" name="pace" required>
-          <option value="">Select travel pace</option>
-          <option value="relaxed">Relaxed — take it slow</option>
-          <option value="moderate">Moderate — a balanced itinerary</option>
-          <option value="fast">Fast — explore as much as possible</option>
-        </select>
-      </div>
-
-      <button type="submit" class="submit-btn">
-        Find My Destination →
-      </button>
 
     </form>
+
   </main>
+
 
   <footer class="footer">
     <p>WayFind · Made for curious travellers</p>
