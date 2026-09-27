@@ -36,3 +36,15 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t wayfind:ci .
+
+      - name: Run Docker container
+        run: docker run -d --name wayfind-smoke -p 3000:3000 wayfind:ci
+
+      - name: Test health endpoint
+        run: |
+          sleep 3
+          curl --fail http://localhost:3000/health
+
+      - name: Stop Docker container
+        if: always()
+        run: docker stop wayfind-smoke
