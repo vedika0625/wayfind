@@ -35,7 +35,7 @@ jobs:
         run: npm test
 
       - name: Build Docker image
-        run: docker build --build-arg --build-arg RENDER_GIT_COMMIT=${{ github.sha }} -t wayfind:ci .
+        run: docker build --build-arg RENDER_GIT_COMMIT=${{ github.sha }} -t wayfind:ci .
 
       - name: Run Docker container
         run: docker run -d --name wayfind-smoke -p 3000:3000 wayfind:ci
